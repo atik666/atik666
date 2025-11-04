@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, BookOpen, Cpu, Network, GraduationCap } from "lucide-react";
 import { Link } from "react-router-dom";
+import profilePhoto from "@/assets/atik-faysal.png";
 
 const Home = () => {
   const highlights = [
@@ -32,29 +33,43 @@ const Home = () => {
       {/* Hero Section */}
       <section className="gradient-hero py-20 md:py-32">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              Atik Faysal
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-              Machine Learning Researcher & PhD Candidate
-            </p>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Specializing in semi-supervised learning, transformers, and AI for wireless communications. 
-              Seeking tenure-track faculty positions starting Fall 2026.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/research">
-                <Button size="lg" className="w-full sm:w-auto">
-                  View Research
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                  Get in Touch
-                </Button>
-              </Link>
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              {/* Profile Photo */}
+              <div className="flex-shrink-0">
+                <img 
+                  src={profilePhoto} 
+                  alt="Atik Faysal - Machine Learning Researcher" 
+                  className="w-64 h-64 md:w-80 md:h-80 rounded-2xl object-cover shadow-elegant border-2 border-border"
+                />
+              </div>
+              
+              {/* Hero Content */}
+              <div className="flex-1 text-center md:text-left">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
+                  Atik Faysal
+                </h1>
+                <p className="text-xl md:text-2xl text-muted-foreground mb-6">
+                  Machine Learning Researcher & PhD Candidate
+                </p>
+                <p className="text-lg text-muted-foreground mb-8">
+                  Specializing in semi-supervised learning, transformers, and AI for wireless communications. 
+                  Seeking tenure-track faculty positions starting Fall 2026.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                  <Link to="/research">
+                    <Button size="lg" className="w-full sm:w-auto">
+                      View Research
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Link to="/contact">
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                      Get in Touch
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
