@@ -19,7 +19,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/faculty-web-weaver">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/research" element={<Layout><Research /></Layout>} />
