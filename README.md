@@ -60,6 +60,46 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## Contact form setup (Supabase + Resend)
+
+To enable the contact form that calls a Supabase Edge Function and sends email via Resend:
+
+1) Frontend env
+- Copy `.env.example` to `.env.local` and set your Supabase URL.
+
+```
+cp .env.example .env.local
+# edit .env.local
+VITE_SUPABASE_URL=https://<your-project-ref>.supabase.co
+```
+
+Restart the dev server after editing env.
+
+2) Deploy the Edge Function
+- Requires the Supabase CLI and that you're logged in and linked to your project.
+
+```
+supabase functions deploy send-contact-email
+```
+
+3) Set the Resend API key secret
+
+```
+supabase secrets set RESEND_API_KEY=your_resend_api_key
+```
+
+4) Test the function
+
+```
+curl -i -X POST "https://<your-project-ref>.supabase.co/functions/v1/send-contact-email" \
+	-H "Content-Type: application/json" \
+	-d '{"name":"Test","email":"me@example.com","subject":"Hello","message":"Hi there"}'
+```
+
+Notes:
+- Ensure your Resend sender is verified; using `onboarding@resend.dev` may only deliver to verified recipients.
+- CORS is enabled for `POST` and `OPTIONS` requests with `*` origin by default in the function.
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/6a953915-2155-4847-bd2d-3d953c46c1d0) and click on Share -> Publish.

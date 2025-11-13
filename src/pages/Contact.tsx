@@ -22,19 +22,27 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const baseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+      if (!baseUrl) {
+        throw new Error("VITE_SUPABASE_URL is not set");
+      }
+
+      const response = await fetch(`${baseUrl}/functions/v1/send-contact-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+  const payload: unknown = await response.json().catch(() => null);
 
       if (!response.ok) {
-        throw new Error("Failed to send message");
+        const errorMessage =
+          payload && typeof payload === "object" && "error" in payload
+            ? (payload as { error?: string }).error || undefined
+            : undefined;
+        throw new Error(errorMessage || `Request failed with ${response.status}`);
       }
 
       toast({
@@ -43,9 +51,10 @@ const Contact = () => {
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
+      const message = error instanceof Error ? error.message : "Failed to send message.";
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: message,
         variant: "destructive",
       });
     } finally {
