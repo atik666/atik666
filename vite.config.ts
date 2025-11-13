@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/faculty-web-weaver/",
+  base: mode === 'production' ? "/faculty-web-weaver/" : "/",
   build: {
     outDir: "docs", // Change output directory to docs
   },
