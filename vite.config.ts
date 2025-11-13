@@ -5,6 +5,9 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "/faculty-web-weaver/",
+  build: {
+    outDir: "docs", // Change output directory to docs
+  },
   server: {
     host: "::",
     port: 8080,
