@@ -22,7 +22,10 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const baseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+      // Prefer explicit env var, but fall back to local Supabase in dev for convenience
+      const baseUrl =
+        (import.meta.env.VITE_SUPABASE_URL as string | undefined) ??
+        (import.meta.env.DEV ? "http://127.0.0.1:54321" : undefined);
       if (!baseUrl) {
         throw new Error("VITE_SUPABASE_URL is not set");
       }

@@ -65,15 +65,15 @@ This project is built with:
 To enable the contact form that calls a Supabase Edge Function and sends email via Resend:
 
 1) Frontend env
-- Copy `.env.example` to `.env.local` and set your Supabase URL.
+- Copy `.env.example` to `.env.local` and set your Supabase URL. I've added a default `.env.local` that points to `http://127.0.0.1:54321` for local Supabase CLI.
 
 ```
 cp .env.example .env.local
-# edit .env.local
+# edit .env.local for production deployments
 VITE_SUPABASE_URL=https://<your-project-ref>.supabase.co
 ```
 
-Restart the dev server after editing env.
+Restart the dev server after editing env. In development, if `VITE_SUPABASE_URL` is not set, the app will fall back to `http://127.0.0.1:54321`.
 
 2) Deploy the Edge Function
 - Requires the Supabase CLI and that you're logged in and linked to your project.
