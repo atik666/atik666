@@ -41,11 +41,17 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Sending contact email:", { name, email, subject });
 
+    // Pull runtime configuration
+    const CONTACT_TO = Deno.env.get("CONTACT_TO") || "faysal24@rowan.edu";
+    const CONTACT_FROM =
+      Deno.env.get("CONTACT_FROM") || "Contact Form <onboarding@resend.dev>";
+    const REPLY_TO = Deno.env.get("REPLY_TO") || email; // default to the sender's email
+
     // Send email to yourself
     const emailResponse = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
-      to: ["faysal24@rowan.edu"], // Your email
-      subject: `Contact Form: ${subject}`,
+      from: CONTACT_FROM,
+      to: [CONTACT_TO],
+      subject: `Contact Form: ${subject || "New message"}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>From:</strong> ${name} (${email})</p>
@@ -54,6 +60,7 @@ const handler = async (req: Request): Promise<Response> => {
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
+      reply_to: REPLY_TO,
     });
 
     console.log("Email sent successfully:", emailResponse);
