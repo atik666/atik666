@@ -50,7 +50,7 @@ const Home = () => {
                   Atik Faysal
                 </h1>
                 <p className="text-xl md:text-2xl text-muted-foreground mb-6">
-                  Machine Learning Researcher & PhD Candidate
+                  Machine Learning Researcher & PhD Candidate (Expected completion: Spring 2026)
                 </p>
                 <p className="text-lg text-muted-foreground mb-8">
                   Specializing in semi-supervised learning, transformers, and AI for wireless communications. 
