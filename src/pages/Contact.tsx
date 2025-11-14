@@ -111,8 +111,9 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto mb-16 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h1>
           <p className="text-lg text-muted-foreground">
-            I'm actively seeking tenure-track faculty positions and research collaborations. 
-            Feel free to reach out for opportunities or inquiries.
+            I'm actively seeking tenure-track faculty positions, postdocs, industrial positions, and research collaborations. 
+            Feel free to reach out for opportunities or inquiries. <br />
+            <strong>Note: (I have not learned yet how to make the send message box work (I keep crashing the site), so please use the contact info on left (Email: faysal24@rowan.edu) to reach me.)</strong> 
           </p>
         </div>
 
