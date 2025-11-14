@@ -6,6 +6,33 @@ const Teaching = () => {
   const experiences = [
     {
       icon: <GraduationCap className="h-8 w-8 text-primary" />,
+      role: "Teaching Assistant",
+      institution: "Rowan University",
+      location: "Glassboro, NJ",
+      period: "Jan 2024 – Present",
+      description: "Assisted in teaching Digital Signal Processing, covering fundamental DSP concepts and applications.",
+      achievements: [
+        "Taught filtering techniques and filter design",
+        "Explained Fourier analysis and frequency-domain concepts",
+        "Guided students through signal representation methods",
+      ],
+    },
+    {
+      icon: <GraduationCap className="h-8 w-8 text-primary" />,
+      role: "Teaching Assistant",
+      institution: "Rowan University",
+      location: "Glassboro, NJ",
+      period: "Sep 2024 – Present",
+      description: "Assisted in teaching Signals and Systems, focusing on foundational signal processing concepts.",
+      achievements: [
+        "Instructed time-domain and frequency-domain analysis",
+        "Demonstrated convolution operations and applications",
+        "Explained system stability analysis and characterization",
+      ],
+    },
+
+    {
+      icon: <GraduationCap className="h-8 w-8 text-primary" />,
       role: "Graduate Research Assistant",
       institution: "Rowan University",
       location: "Glassboro, NJ",
@@ -55,19 +82,6 @@ const Teaching = () => {
         "Published 4 papers in international journals",
         "Developed scalogram analysis pipelines",
         "Applied ML to rotating machinery fault detection",
-      ],
-    },
-    {
-      icon: <Briefcase className="h-8 w-8 text-primary" />,
-      role: "AI Engineer",
-      institution: "BD Group, Inc.",
-      location: "Dhaka, Bangladesh",
-      period: "Jan 2019 – Nov 2019",
-      description: "Developed computer vision solutions for industrial applications including crack detection and defect classification.",
-      achievements: [
-        "Built crack detection system using CNNs",
-        "Implemented real-time inference pipelines",
-        "Deployed models for production use",
       ],
     },
   ];

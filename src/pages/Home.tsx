@@ -53,8 +53,8 @@ const Home = () => {
                   Machine Learning Researcher & PhD Candidate (Expected completion: Spring 2026)
                 </p>
                 <p className="text-lg text-muted-foreground mb-8">
-                  Specializing in semi-supervised learning, transformers, and AI for wireless communications. 
-                  Seeking tenure-track faculty positions starting Fall 2026.
+                  Specializing in semi-supervised learning, multimodal learning, and AI for wireless communications. 
+                  I am available in the job market in the US, open to relocation and available immediately.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                   <Link to="/research">
@@ -150,7 +150,7 @@ const Home = () => {
               Looking for Collaboration?
             </h2>
             <p className="text-lg mb-8 opacity-90">
-              I'm actively seeking tenure-track faculty positions and research collaborations 
+              I'm actively seeking tenure-track faculty positions, postdocs, industrial positions, and research collaborations 
               in machine learning and wireless communications.
             </p>
             <Link to="/contact">
